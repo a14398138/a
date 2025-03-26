@@ -54,6 +54,18 @@
         .page.active {
             display: block;
         }
+        .member {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1em;
+        }
+        .member img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-right: 1em;
+            border-radius: 5px;
+        }
         footer {
             background-color: #2c3e50;
             color: white;
@@ -72,7 +84,10 @@
                 <a href="#" onclick="showPage('about')">部活について</a>
                 <a href="#" onclick="showPage('schedule')">スケジュール</a>
                 <a href="#" onclick="showPage('contact')">連絡先</a>
-                <!-- ページ一覧ボタンを追加 -->
+                <a href="#" onclick="showPage('members')">メンバー一覧</a>
+                <a href="#" onclick="showPage('event-a')">種目名Aについて</a>
+                <a href="#" onclick="showPage('event-b')">種目名Bについて</a>
+                <a href="#" onclick="showPage('results')">大会成績</a>
                 <a href="#" onclick="showPage('page-list')">ページ一覧</a>
             </div>
         </div>
@@ -104,16 +119,282 @@
             <p>お問い合わせはこちら：example@email.com</p>
         </div>
 
-        <!-- ページ一覧ページを追加 -->
+        <!-- メンバー一覧（写真付き） -->
+        <div id="members" class="page">
+            <h2>メンバー一覧</h2>
+            <p>部活のメンバーを紹介します。</p>
+            <div class="member">
+                <img src="./images/yamada.jpg" alt="山田太郎">
+                <div>
+                    <strong>山田太郎</strong> - 部長（3年）
+                </div>
+            </div>
+            <div class="member">
+                <img src="./images/sato.jpg" alt="佐藤花子">
+                <div>
+                    <strong>佐藤花子</strong> - 副部長（2年）
+                </div>
+            </div>
+            <div class="member">
+                <img src="./images/suzuki.jpg" alt="鈴木一郎">
+                <div>
+                    <strong>鈴木一郎</strong> - 会計（2年）
+                </div>
+            </div>
+            <!-- 必要に応じてメンバーを追加 -->
+        </div>
+
+        <!-- 種目名Aについて -->
+        <div id="event-a" class="page">
+            <h2>種目名Aについて</h2>
+            <p>種目名Aは[部活名]の主要な活動の一つです。</p>
+            <p>ルールや特徴：ここに詳細を記載します。</p>
+        </div>
+
+        <!-- 種目名Bについて -->
+        <div id="event-b" class="page">
+            <h2>種目名Bについて</h2>
+            <p>種目名Bは[部活名]で取り組んでいるもう一つの競技です。</p>
+            <p>歴史や魅力：ここに詳細を記載します。</p>
+        </div>
+
+        <!-- 大会成績（種目ごとに分離） -->
+        <div id="results" class="page">
+            <h2>大会成績</h2>
+            <h3>種目名A</h3>
+            <ul>
+                <li>2024年秋季大会 - 優勝</li>
+                <li>2024年夏季大会 - 準優勝</li>
+                <!-- 種目名Aの成績を追加 -->
+            </ul>
+            <h3>種目名B</h3>
+            <ul>
+                <li>2024年秋季大会 - 3位</li>
+                <li>2024年夏季大会 - ベスト8</li>
+                <!-- 種目名Bの成績を追加 -->
+            </ul>
+        </div>
+
+        <!-- ページ一覧 -->
         <div id="page-list" class="page">
             <h2>ページ一覧</h2>
             <p>当サイトのすべてのページをご覧いただけます。</p>
             <ul>
                 <li><a href="#" onclick="showPage('home')">トップ</a></li>
                 <li><a href="#" onclick="showPage('about')">部活について</a></li>
-                <li><a href="#" onclick="showPage('schedule')">スケジュール</a></li>
+                <li><a phosphory="schedule')">スケジュール</a></li>
                 <li><a href="#" onclick="showPage('contact')">連絡先</a></li>
-                <!-- 新しいページを追加した場合、ここにもリンクを追加 -->
+                <li><a href="#" onclick="showPage('members')">メンバー一覧</a></li>
+                <li><a href="#" onclick="showPage('event-a')">種目名Aについて</a></li>
+                <li><a href="#" onclick="showPage('event-b')">種目名Bについて</a></li>
+                <li><a href="#" onclick="showPage('results')">大会成績</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 部活名. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>部活公式サイト</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1em;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .nav-bar h1 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        .nav-buttons a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1.5em;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            background-color: #34495e;
+        }
+        .nav-buttons a:hover {
+            background-color: #465c71;
+        }
+        .content {
+            margin-top: 80px;
+            padding: 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        .member {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1em;
+        }
+        .member img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-right: 1em;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            margin-top: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="nav-bar">
+            <h1>部活名</h1>
+            <div class="nav-buttons">
+                <a href="#" onclick="showPage('home')">トップ</a>
+                <a href="#" onclick="showPage('about')">部活について</a>
+                <a href="#" onclick="showPage('schedule')">スケジュール</a>
+                <a href="#" onclick="showPage('contact')">連絡先</a>
+                <a href="#" onclick="showPage('members')">メンバー一覧</a>
+                <a href="#" onclick="showPage('event-a')">種目名Aについて</a>
+                <a href="#" onclick="showPage('event-b')">種目名Bについて</a>
+                <a href="#" onclick="showPage('results')">大会成績</a>
+                <a href="#" onclick="showPage('page-list')">ページ一覧</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div id="home" class="page active">
+            <h2>ようこそ！</h2>
+            <p>部活の公式サイトへようこそ。ここでは最新情報をお届けします。</p>
+            <p>現在の日付：2025年3月26日</p>
+        </div>
+
+        <div id="about" class="page">
+            <h2>部活について</h2>
+            <p>私たちは[部活名]です。活動内容や目標をここに記載します。</p>
+        </div>
+
+        <div id="schedule" class="page">
+            <h2>スケジュール</h2>
+            <p>今後の予定をここに記載します。</p>
+            <ul>
+                <li>4月1日：新入生歓迎会</li>
+                <li>4月15日：練習試合</li>
+            </ul>
+        </div>
+
+        <div id="contact" class="page">
+            <h2>連絡先</h2>
+            <p>お問い合わせはこちら：example@email.com</p>
+        </div>
+
+        <!-- メンバー一覧（写真付き） -->
+        <div id="members" class="page">
+            <h2>メンバー一覧</h2>
+            <p>部活のメンバーを紹介します。</p>
+            <div class="member">
+                <img src="./images/yamada.jpg" alt="山田太郎">
+                <div>
+                    <strong>山田太郎</strong> - 部長（3年）
+                </div>
+            </div>
+            <div class="member">
+                <img src="./images/sato.jpg" alt="佐藤花子">
+                <div>
+                    <strong>佐藤花子</strong> - 副部長（2年）
+                </div>
+            </div>
+            <div class="member">
+                <img src="./images/suzuki.jpg" alt="鈴木一郎">
+                <div>
+                    <strong>鈴木一郎</strong> - 会計（2年）
+                </div>
+            </div>
+            <!-- 必要に応じてメンバーを追加 -->
+        </div>
+
+        <!-- 種目名Aについて -->
+        <div id="event-a" class="page">
+            <h2>種目名Aについて</h2>
+            <p>種目名Aは...です。</p>
+            <p>ルールや特徴：ここに詳細を記載します。</p>
+        </div>
+
+        <!-- 種目名Bについて -->
+        <div id="event-b" class="page">
+            <h2>種目名Bについて</h2>
+            <p>種目名Bは...です。</p>
+            <p>歴史や魅力：ここに詳細を記載します。</p>
+        </div>
+
+        <!-- 大会成績（種目ごとに分離） -->
+        <div id="results" class="page">
+            <h2>大会成績</h2>
+            <h3>種目名A</h3>
+            <ul>
+                <li>2024年秋季大会 - 優勝</li>
+                <li>2024年夏季大会 - 準優勝</li>
+                <!-- 種目名Aの成績を追加 -->
+            </ul>
+            <h3>種目名B</h3>
+            <ul>
+                <li>2024年秋季大会 - 3位</li>
+                <li>2024年夏季大会 - ベスト8</li>
+                <!-- 種目名Bの成績を追加 -->
+            </ul>
+        </div>
+
+        <!-- ページ一覧 -->
+        <div id="page-list" class="page">
+            <h2>ページ一覧</h2>
+            <p>当サイトのすべてのページをご覧いただけます。</p>
+            <ul>
+                <li><a href="#" onclick="showPage('home')">トップ</a></li>
+                <li><a href="#" onclick="showPage('about')">部活について</a></li>
+                <li><a phosphory="schedule')">スケジュール</a></li>
+                <li><a href="#" onclick="showPage('contact')">連絡先</a></li>
+                <li><a href="#" onclick="showPage('members')">メンバー一覧</a></li>
+                <li><a href="#" onclick="showPage('event-a')">種目名Aについて</a></li>
+                <li><a href="#" onclick="showPage('event-b')">種目名Bについて</a></li>
+                <li><a href="#" onclick="showPage('results')">大会成績</a></li>
             </ul>
         </div>
     </div>
