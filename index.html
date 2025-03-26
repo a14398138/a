@@ -42,7 +42,7 @@
             background-color: #465c71;
         }
         .content {
-            margin-top: 80px; /* ヘッダーの高さ分 */
+            margin-top: 80px;
             padding: 20px;
             max-width: 1200px;
             margin-left: auto;
@@ -72,13 +72,13 @@
                 <a href="#" onclick="showPage('about')">部活について</a>
                 <a href="#" onclick="showPage('schedule')">スケジュール</a>
                 <a href="#" onclick="showPage('contact')">連絡先</a>
-                <!-- ここに新しいページのボタンを追加できます -->
+                <!-- ページ一覧ボタンを追加 -->
+                <a href="#" onclick="showPage('page-list')">ページ一覧</a>
             </div>
         </div>
     </div>
 
     <div class="content">
-        <!-- 各ページのコンテンツ -->
         <div id="home" class="page active">
             <h2>ようこそ！</h2>
             <p>部活の公式サイトへようこそ。ここでは最新情報をお届けします。</p>
@@ -104,7 +104,18 @@
             <p>お問い合わせはこちら：example@email.com</p>
         </div>
 
-        <!-- 新しいページをここに追加できます -->
+        <!-- ページ一覧ページを追加 -->
+        <div id="page-list" class="page">
+            <h2>ページ一覧</h2>
+            <p>当サイトのすべてのページをご覧いただけます。</p>
+            <ul>
+                <li><a href="#" onclick="showPage('home')">トップ</a></li>
+                <li><a href="#" onclick="showPage('about')">部活について</a></li>
+                <li><a href="#" onclick="showPage('schedule')">スケジュール</a></li>
+                <li><a href="#" onclick="showPage('contact')">連絡先</a></li>
+                <!-- 新しいページを追加した場合、ここにもリンクを追加 -->
+            </ul>
+        </div>
     </div>
 
     <footer>
@@ -112,13 +123,10 @@
     </footer>
 
     <script>
-        // ページ切り替え用のJavaScript
         function showPage(pageId) {
-            // すべてのページを非表示に
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
-            // 選択されたページを表示
             document.getElementById(pageId).classList.add('active');
         }
     </script>
