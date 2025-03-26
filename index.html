@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>部活公式サイト</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1em;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .nav-bar h1 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        .nav-buttons a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1.5em;
+            padding: 0.5em 1em;
+            border-radius: 5px;
+            background-color: #34495e;
+        }
+        .nav-buttons a:hover {
+            background-color: #465c71;
+        }
+        .content {
+            margin-top: 80px; /* ヘッダーの高さ分 */
+            padding: 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            margin-top: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="nav-bar">
+            <h1>部活名</h1>
+            <div class="nav-buttons">
+                <a href="#" onclick="showPage('home')">トップ</a>
+                <a href="#" onclick="showPage('about')">部活について</a>
+                <a href="#" onclick="showPage('schedule')">スケジュール</a>
+                <a href="#" onclick="showPage('contact')">連絡先</a>
+                <!-- ここに新しいページのボタンを追加できます -->
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <!-- 各ページのコンテンツ -->
+        <div id="home" class="page active">
+            <h2>ようこそ！</h2>
+            <p>部活の公式サイトへようこそ。ここでは最新情報をお届けします。</p>
+            <p>現在の日付：2025年3月26日</p>
+        </div>
+
+        <div id="about" class="page">
+            <h2>部活について</h2>
+            <p>私たちは[部活名]です。活動内容や目標をここに記載します。</p>
+        </div>
+
+        <div id="schedule" class="page">
+            <h2>スケジュール</h2>
+            <p>今後の予定をここに記載します。</p>
+            <ul>
+                <li>4月1日：新入生歓迎会</li>
+                <li>4月15日：練習試合</li>
+            </ul>
+        </div>
+
+        <div id="contact" class="page">
+            <h2>連絡先</h2>
+            <p>お問い合わせはこちら：example@email.com</p>
+        </div>
+
+        <!-- 新しいページをここに追加できます -->
+    </div>
+
+    <footer>
+        <p>© 2025 部活名. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // ページ切り替え用のJavaScript
+        function showPage(pageId) {
+            // すべてのページを非表示に
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            // 選択されたページを表示
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
